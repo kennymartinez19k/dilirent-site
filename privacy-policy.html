@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Términos y Privacidad – Dili Rent</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --night:   #0D1B4B;
+      --primary: #1A4FD6;
+      --accent:  #2563EB;
+      --accent2: #4B7BFF;
+      --white:   #F9FAFE;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--night);
+      color: var(--white);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 1.5rem 5rem;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background:
+        radial-gradient(ellipse 70% 50% at 20% 10%, rgba(74,123,255,.18) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 60% at 80% 80%, rgba(26,79,214,.22) 0%, transparent 60%);
+      pointer-events: none; z-index: 0;
+    }
+
+    header {
+      position: relative; z-index: 1;
+      width: 100%; max-width: 720px;
+      padding: 3rem 0 2rem;
+      display: flex; align-items: center; gap: 1rem;
+    }
+
+    .logo-mark {
+      width: 48px; height: 48px;
+      background: linear-gradient(135deg, var(--primary), var(--accent2));
+      border-radius: 14px;
+      display: grid; place-items: center;
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.6rem; color: #fff; flex-shrink: 0;
+      box-shadow: 0 4px 20px rgba(75,123,255,.35);
+    }
+    .brand { display: flex; flex-direction: column; }
+    .brand-name { font-family: 'DM Serif Display', serif; font-size: 1.25rem; color: var(--white); }
+    .brand-sub { font-size: .75rem; font-weight: 300; color: rgba(249,250,254,.45); letter-spacing: .08em; text-transform: uppercase; }
+
+    .container {
+      position: relative; z-index: 1;
+      width: 100%; max-width: 720px;
+      animation: fadeUp .6s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .doc-header {
+      display: flex; flex-direction: column; align-items: center;
+      gap: .75rem; padding: 2.5rem 1.5rem 2rem; text-align: center;
+    }
+    .doc-icon {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: rgba(37,99,235,.1); border: 1px solid rgba(37,99,235,.2);
+      display: grid; place-items: center;
+    }
+    .doc-icon svg { width: 28px; height: 28px; stroke: var(--accent2); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .doc-title { font-family: 'DM Serif Display', serif; font-size: clamp(1.5rem, 4vw, 2rem); line-height: 1.2; }
+    .date-badge {
+      display: inline-flex; align-items: center; gap: .4rem;
+      background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1);
+      border-radius: 99px; padding: .3rem 1rem;
+      font-size: .78rem; font-weight: 400; color: rgba(249,250,254,.45);
+    }
+    .date-badge svg { width: 12px; height: 12px; stroke: rgba(249,250,254,.4); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+    .card {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.09);
+      border-radius: 24px; overflow: hidden;
+      backdrop-filter: blur(12px); margin-bottom: 1rem;
+    }
+
+    .section { padding: 1.5rem 2rem; }
+    .section-title { font-size: .875rem; font-weight: 700; color: var(--white); margin-bottom: .75rem; }
+    .body { font-size: .9rem; font-weight: 300; color: rgba(249,250,254,.6); line-height: 1.7; margin-bottom: .6rem; }
+    .body:last-child { margin-bottom: 0; }
+    .divider { height: 1px; background: rgba(255,255,255,.07); }
+
+    ul { list-style: none; display: flex; flex-direction: column; gap: .5rem; margin-top: .25rem; }
+    ul li { display: flex; align-items: flex-start; gap: .625rem; font-size: .875rem; font-weight: 300; color: rgba(249,250,254,.6); line-height: 1.6; }
+    ul li::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--accent2); flex-shrink: 0; margin-top: .6rem; opacity: .7; }
+
+    a.link { color: var(--accent2); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; word-break: break-all; }
+
+    .footer-card {
+      display: flex; align-items: flex-start; gap: .875rem;
+      background: rgba(37,99,235,.06); border: 1px solid rgba(37,99,235,.15);
+      border-radius: 16px; padding: 1.125rem 1.5rem; margin-bottom: 1rem;
+    }
+    .footer-card svg { width: 18px; height: 18px; stroke: var(--accent2); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; margin-top: .1rem; }
+    .footer-card p { font-size: .875rem; font-weight: 300; color: rgba(249,250,254,.6); line-height: 1.6; }
+
+    .version { text-align: center; font-size: .78rem; font-weight: 300; color: rgba(249,250,254,.25); padding-top: .5rem; }
+
+    footer { position: relative; z-index: 1; margin-top: 2rem; font-size: .78rem; font-weight: 300; color: rgba(249,250,254,.25); text-align: center; line-height: 1.8; }
+    footer a { color: rgba(75,123,255,.7); text-decoration: none; }
+
+    @media (max-width: 480px) {
+      .section { padding: 1.25rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-mark">D</div>
+    <div class="brand">
+      <span class="brand-name">Dili Rent</span>
+      <span class="brand-sub">by Dilivy Group</span>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <div class="doc-header">
+      <div class="doc-icon">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+      </div>
+      <h1 class="doc-title">Términos de Uso y<br/>Política de Privacidad</h1>
+      <div class="date-badge">
+        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Última actualización: 16 de marzo de 2025
+      </div>
+    </div>
+
+    <div class="card">
+
+      <div class="section">
+        <p class="section-title">1. Aceptación de los términos</p>
+        <p class="body">Al descargar, instalar o usar la aplicación Dili Rent, desarrollada por Dilivy, aceptas quedar vinculado por estos Términos de Uso y nuestra Política de Privacidad. Si no estás de acuerdo, por favor no uses la aplicación.</p>
+      </div>
+      <div class="divider"></div>
+
+      <div class="section">
+        <p class="section-title">2. Descripción del servicio</p>
+        <p class="body">Dili Rent es una aplicación de gestión empresarial diseñada para dealers y negocios de renta de vehículos. Permite registrar vehículos, gestionar clientes, crear y administrar rentas, ampliar contratos y gestionar equipos de trabajo mediante roles de usuario.</p>
+      </div>
+      <div class="divider"></div>
+
+      <div class="section">
+        <p class="section-title">3. Uso permitido</p>
+        <p class="body">Al usar Dili Rent te comprometes a:</p>
+        <ul>
+          <li>Usar la aplicación únicamente para fines legales y comerciales legítimos.</li>
+          <li>No compartir tu cuenta con personas no autorizadas.</li>
+          <li>No intentar acceder a datos de otras empresas registradas en la plataforma.</li>
+          <li>Mantener la confidencialidad de tus credenciales de acceso.</li>
+          <li>No usar la aplicación para almacenar información falsa o fraudulenta.</li>
+        </ul>
+      </div>
+      <div class="divider"></div>
+
+      <div class="section">
+        <p class="section-title">4. Información que recopilamos</p>
+        <p class="body">Para brindarte el servicio, recopilamos y almacenamos la siguiente información:</p>
+        <ul>
+          <li>Datos de cuenta: nombre, correo electrónico y contraseña cifrada.</li>
+          <li>Datos del negocio: nombre de la empresa y configuración del equipo.</li>
+          <li>Datos de clientes: nombre, correo y demás información ingresada por el usuario.</li>
+          <li>Datos de vehículos: marca, modelo, año, placa, precio y fotografías.</li>
+          <li>Datos de rentas: fechas, montos, estado y historial de modificaciones.</li>
+        </ul>
+      </div>
+      <div class="divider"></div>
+
+      <div class="section">
+        <p class="section-title">5. Cómo usamos tu información</p>
+        <p class="body">La información recopilada se usa exclusivamente para:</p>
+        <ul>
+          <li>Operar y mantener el funcionamiento de la aplicación.</li>
+          <li>Mostrarte tus propios datos de gestión dentro de la app.</li>
+          <li>Permitir la colaboración entre los miembros de tu equipo.</li>
+          <li>Mejorar la experiencia del usuario y corregir errores.</li>
+        </ul>
+        <p class="body" style="margin-top:.75rem">Dilivy no vende, alquila ni comparte tu información personal con terceros con fines comerciales.</p>
+      </div>
+      <div class="divider"></div>
+
+      <div class="section">
+        <p class="section-title">6. Almacenamiento y seguridad</p>
+        <p class="body">Toda la información se almacena en Firebase, la plataforma de Google Cloud, que cuenta con cifrado en tránsito (HTTPS/TLS) y en reposo. El acceso a los datos está restringido mediante reglas de seguridad de Firestore, de modo que cada empresa solo puede acceder a su propia información.</p>
+        <p class="body">A pesar de las medidas implementadas, ningún sistema es 100% infalible. Te recomendamos usar contraseñas seguras y no compartir tu acceso.</p>
+      </div>
+      <div class="divider"></div>
+
+      <div class="section">
+        <p class="section-title">7. Imágenes y archivos</p>
+        <p class="body">Las fotografías de vehículos que subas a la aplicación se almacenan en Firebase Storage. Son de uso exclusivo para visualización dentro de tu cuenta y no serán usadas por Dilivy con ningún otro fin.</p>
+      </div>
+      <div class="divider"></div>
+
+      <div class="section">
+        <p class="section-title">8. Responsabilidad de los datos</p>
+        <p class="body">Dili Rent es una herramienta de gestión. Tú, como usuario, eres responsable de la veracidad, legalidad y correcta gestión de la información que ingresas, incluyendo los datos de tus clientes. Dilivy no se hace responsable del uso indebido de la aplicación por parte del usuario.</p>
+      </div>
+      <div class="divider"></div>
+
+      <div class="section">
+        <p class="section-title">9. Eliminación de cuenta y datos</p>
+        <p class="body">Puedes solicitar la eliminación de tu cuenta y todos los datos asociados en cualquier momento contactándonos a:</p>
+        <a class="link" href="mailto:dilivygroup@gmail.com?subject=Solicitud%20de%20eliminaci%C3%B3n%20de%20cuenta%20-%20Dili%20Rent">dilivygroup@gmail.com</a>
+        <p class="body" style="margin-top:.6rem">Procesaremos tu solicitud en un plazo máximo de 30 días hábiles.</p>
+      </div>
+      <div class="divider"></div>
+
+      <div class="section">
+        <p class="section-title">10. Modificaciones</p>
+        <p class="body">Dilivy se reserva el derecho de actualizar estos términos en cualquier momento. Los cambios serán notificados dentro de la aplicación. El uso continuado de Dili Rent después de los cambios implica la aceptación de los nuevos términos.</p>
+      </div>
+      <div class="divider"></div>
+
+      <div class="section">
+        <p class="section-title">11. Legislación aplicable</p>
+        <p class="body">Estos términos se rigen por las leyes de la República Dominicana. Cualquier disputa será sometida a los tribunales competentes de dicho país.</p>
+      </div>
+
+    </div>
+
+    <div class="footer-card">
+      <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      <p>¿Tienes preguntas sobre estos términos? <a class="link" href="mailto:dilivygroup@gmail.com?subject=Consulta%20t%C3%A9rminos%20-%20Dili%20Rent">Contáctanos</a></p>
+    </div>
+
+    <p class="version">Dili Rent v1.0.0 · Dilivy © 2025</p>
+
+  </div>
+
+  <footer>
+    © 2025 Dilivy Group · Dili Rent – Rent Car Manager<br/>
+    <a href="mailto:dilivygroup@gmail.com">dilivygroup@gmail.com</a>
+  </footer>
+
+</body>
+</html>
