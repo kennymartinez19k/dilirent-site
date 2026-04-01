@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eliminar cuenta – Dili Rent</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --night:   #0D1B4B;
+      --deep:    #0B2FA0;
+      --primary: #1A4FD6;
+      --accent:  #4B7BFF;
+      --soft:    #E8EFFF;
+      --white:   #F9FAFE;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--night);
+      color: var(--white);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 1.5rem 4rem;
+      overflow-x: hidden;
+    }
+
+    /* ── background mesh ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 50% at 20% 10%, rgba(74,123,255,.18) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 60% at 80% 80%, rgba(26,79,214,.22) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── header ── */
+    header {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 680px;
+      padding: 3rem 0 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo-mark {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.6rem;
+      color: #fff;
+      flex-shrink: 0;
+      box-shadow: 0 4px 20px rgba(75,123,255,.35);
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+    }
+    .brand-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.25rem;
+      letter-spacing: .01em;
+      color: var(--white);
+    }
+    .brand-sub {
+      font-size: .75rem;
+      font-weight: 300;
+      color: rgba(249,250,254,.45);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    /* ── card ── */
+    .card {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 680px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.09);
+      border-radius: 24px;
+      padding: 3rem 2.5rem;
+      backdrop-filter: blur(12px);
+      animation: fadeUp .6s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .card-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: rgba(255,80,80,.12);
+      border: 1px solid rgba(255,80,80,.2);
+      display: grid;
+      place-items: center;
+      margin-bottom: 1.5rem;
+    }
+    .card-icon svg { width: 24px; height: 24px; stroke: #ff6b6b; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.6rem, 4vw, 2rem);
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: .6rem;
+      color: var(--white);
+    }
+
+    .subtitle {
+      font-size: .95rem;
+      font-weight: 300;
+      color: rgba(249,250,254,.55);
+      margin-bottom: 2.5rem;
+      line-height: 1.6;
+    }
+
+    /* ── steps ── */
+    .steps { display: flex; flex-direction: column; gap: 1px; margin-bottom: 2.5rem; }
+
+    .step {
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+      padding: 1.25rem 1.25rem;
+      border-radius: 14px;
+      transition: background .2s;
+    }
+    .step:hover { background: rgba(255,255,255,.04); }
+
+    .step-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(75,123,255,.15);
+      border: 1px solid rgba(75,123,255,.3);
+      display: grid;
+      place-items: center;
+      font-size: .8rem;
+      font-weight: 500;
+      color: var(--accent);
+      flex-shrink: 0;
+      margin-top: .1rem;
+    }
+
+    .step-content h3 {
+      font-size: .95rem;
+      font-weight: 500;
+      margin-bottom: .3rem;
+      color: var(--white);
+    }
+    .step-content p {
+      font-size: .875rem;
+      font-weight: 300;
+      color: rgba(249,250,254,.5);
+      line-height: 1.55;
+    }
+    .step-content a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(75,123,255,.3);
+      transition: border-color .2s;
+    }
+    .step-content a:hover { border-color: var(--accent); }
+
+    /* ── divider ── */
+    .divider {
+      height: 1px;
+      background: rgba(255,255,255,.07);
+      margin: 2.5rem 0;
+    }
+
+    /* ── data table ── */
+    .section-label {
+      font-size: .7rem;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(249,250,254,.35);
+      margin-bottom: 1rem;
+    }
+
+    .data-list { display: flex; flex-direction: column; gap: .75rem; }
+
+    .data-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: .875rem 1.25rem;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 12px;
+      flex-wrap: wrap;
+    }
+
+    .data-name {
+      font-size: .875rem;
+      color: var(--white);
+      font-weight: 400;
+    }
+
+    .badge {
+      font-size: .72rem;
+      font-weight: 500;
+      padding: .25rem .75rem;
+      border-radius: 99px;
+      white-space: nowrap;
+    }
+    .badge-delete {
+      background: rgba(255,80,80,.12);
+      border: 1px solid rgba(255,80,80,.2);
+      color: #ff6b6b;
+    }
+    .badge-keep {
+      background: rgba(75,123,255,.12);
+      border: 1px solid rgba(75,123,255,.25);
+      color: var(--accent);
+    }
+
+    /* ── notice ── */
+    .notice {
+      margin-top: 2rem;
+      padding: 1rem 1.25rem;
+      background: rgba(255,200,50,.06);
+      border: 1px solid rgba(255,200,50,.15);
+      border-radius: 12px;
+      font-size: .83rem;
+      font-weight: 300;
+      color: rgba(249,250,254,.55);
+      line-height: 1.6;
+    }
+    .notice strong { color: rgba(255,200,50,.8); font-weight: 500; }
+
+    /* ── footer ── */
+    footer {
+      position: relative;
+      z-index: 1;
+      margin-top: 2.5rem;
+      font-size: .78rem;
+      font-weight: 300;
+      color: rgba(249,250,254,.25);
+      text-align: center;
+      line-height: 1.8;
+    }
+    footer a { color: rgba(75,123,255,.7); text-decoration: none; }
+
+    @media (max-width: 480px) {
+      .card { padding: 2rem 1.5rem; }
+      h1 { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-mark">D</div>
+    <div class="brand">
+      <span class="brand-name">Dili Rent</span>
+      <span class="brand-sub">by Dilivy Group</span>
+    </div>
+  </header>
+
+  <div class="card">
+
+    <div class="card-icon">
+      <svg viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4h6v2"/></svg>
+    </div>
+
+    <h1>Eliminar tu cuenta</h1>
+    <p class="subtitle">
+      Puedes solicitar la eliminación de tu cuenta y los datos asociados en cualquier momento.
+      Tu solicitud será procesada en un plazo máximo de <strong style="color:var(--white);font-weight:500">30 días</strong>.
+    </p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h3>Envía un correo electrónico</h3>
+          <p>Escribe a <a href="mailto:soporte@dilivy.com">soporte@dilivy.com</a> con el asunto <strong style="color:var(--white)">"Eliminar cuenta"</strong>.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h3>Incluye tu correo registrado</h3>
+          <p>Indica el email con el que creaste tu cuenta en Dili Rent para que podamos identificarla.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h3>Confirmación</h3>
+          <p>Recibirás un email de confirmación una vez que tu cuenta y datos hayan sido eliminados.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <p class="section-label">Datos que se eliminarán o conservarán</p>
+
+    <div class="data-list">
+      <div class="data-row">
+        <span class="data-name">Información de perfil (nombre, correo)</span>
+        <span class="badge badge-delete">Se elimina</span>
+      </div>
+      <div class="data-row">
+        <span class="data-name">Vehículos y clientes registrados</span>
+        <span class="badge badge-delete">Se elimina</span>
+      </div>
+      <div class="data-row">
+        <span class="data-name">Historial de rentas</span>
+        <span class="badge badge-delete">Se elimina</span>
+      </div>
+      <div class="data-row">
+        <span class="data-name">Registros de facturación (Google Play)</span>
+        <span class="badge badge-keep">Retenido 90 días</span>
+      </div>
+    </div>
+
+    <div class="notice">
+      <strong>Nota:</strong> Los registros de facturación son retenidos temporalmente por obligaciones legales y para resolver posibles disputas de pago. Después de 90 días son eliminados permanentemente.
+    </div>
+
+  </div>
+
+  <footer>
+    © 2025 Dilivy Group · Dili Rent – Rent Car Manager<br/>
+    <a href="mailto:soporte@dilivy.com">soporte@dilivy.com</a>
+  </footer>
+
+</body>
+</html>
